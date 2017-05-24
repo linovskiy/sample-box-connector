@@ -1,0 +1,224 @@
+FORMAT: 1A
+HOST: https://private-b77a0-fallballconnector.apiary-mock.com
+
+# FallBall Connector
+
+FallBall Connector implements the APS Lite connector API for FallBall sample application
+
+
+
+## Top level [/]
+
+### Health Check [GET /]
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "version": "1.0"
+        }
+
+
+## Application [/app]
+
+###  Partner creates new application instance [POST /app]
+
++ Request (application/json)
+    + Attributes (object)
+        + aps (object)
+            + type (string)
+            + id (string)
+
++ Response 201 (application/json)
+
+        {
+            "aps": {
+                "id": "24ed300f-9c1f-4d8c-948f-d23319c31c2a",
+                "type": "http://aps.odin.com/app/fallball-connector/app/1.0"
+            }
+        }
+
+
+###  Partner deinstall application [DELETE /app/{id}]
+
++ Response 204 (application/json)
+
+
+###  Partner upgrades application [POST /app/{id}/upgrade{?version}]
+
+Version parameter will contain the app version the connector is upgraded from.
+
++ Parameters
+    + version (string)
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### Application subscriptions populated [POST /app/{app}/tenants]
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### Subscription removed from application collection [DELETE /app/{app}/tenants/{id}]
+
++ Response 200 (application/json)
+
+        {
+        }
+
+
+## Tenant [/tenant]
+
+Resources related to subscription API
+
+### Create a new subscription [POST /tenant]
+
++ Request (application/json)
+    + Attributes (object)
+        + aps (object)
+            + type (string)
+            + id (string)
+        + DEVICES (object)
+            + limit (number)
+        + DISKSPACE (object)
+            + limit (number)
+        + USERS (object)
+            + limit (number)
+        + oaSubscription (object)
+            + aps (object)
+                + id (string)
+        + oaAccout (object)
+            + aps (object)
+                + id (string)
+
++ Response 201 (application/json)
+
+        {
+            "tenantId": "Davis-and-Sons-sub446"
+        }
+
+
+
+### Get application resource usage [GET /tenant/{id}]
+
++ Response 200 (application/json)
+
+        {
+            "DEVICES": {
+                "usage": 5
+            },
+            "DISKSPACE": {
+                "usage": 10
+            },
+            "USERS": {
+                "usage": 2
+            }
+        }
+
+
+### Update subscription resource limits [PUT /tenant/{id}]
+
++ Request (application/json)
+    + Attributes (object)
+        + DISKSPACE (object)
+            + limit (number)
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### Delete subscription [DELETE /tenant/{id}]
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### Suspend subscription [PUT /tenant/{id}/disable]
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### Resume subscription [PUT /tenant/{id}/enable]
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### Login to application [GET /tenant/{id}/adminlogin]
+
++ Response 200 (text/plain)
+
+        http://fallball.io/#/auth?token=eyJhbGciOiJE
+
+### New user notification [POST /tenant/{id}/users]
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### User removed notification [DELETE /tenant/{id}/users/{user_id}]
+
++ Response 200 (application/json)
+
+        {
+        }
+
+
+
+## User [/user]
+
+###  Create new user [POST /user]
+
+The `resource` request attribute will contain the type of user service to assign to user. E.g. 'USERS'.
+
++ Request (application/json)
+    + Attributes (object)
+        + aps (object)
+            + type (string)
+        + tenant (object)
+            + aps (object)
+                + id (string)
+        + user (object)
+            + aps (object)
+                + id (string)
+        + resource (string)
+
++ Response 200 (application/json)
+
+        {
+            "userId": "wilsonthomas@example.net"
+        }
+
+###  Remove user [DELETE /user/{id}]
+
++ Response 204 (application/json)
+
+
+###  Update user [PUT /user/{id}]
+
+Assign a different service to user.
+
++ Request (application/json)
+    + Attributes (object)
+        + resource (string)
+
++ Response 200 (application/json)
+
+        {
+        }
+
+### Log user in [GET /user/{id}/login]
+
++ Response 200 (text/plain)
+
+        http://fallball.io/#/auth?token=CJleHAiOjE0O

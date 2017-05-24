@@ -1,0 +1,12 @@
+{
+    "loglevel": "DEBUG",
+    "oauth_key": "PUT_HERE_OAUTH_KEY_FOR_YOUR_OA_OR_APS_CONNECT_PORTAL",
+    "oauth_signature": "PUT_HERE_OAUTH_SECRET_FOR_YOUR_OA_OR_APS_CONNECT_PORTAL",
+    "users_resource": "USERS",
+    "tenant_type_resource": "_TTYPE",
+    "box_baseurl": "https://api.box.com/2.0/",
+    "box_oauth_baseurl": "https://api.box.com/oauth2/",
+    "box_reseller_client_id": "PUT_HERE_YOUR_BOX_RESELLER_CLIENT_ID",
+    "box_reseller_client_secret": "PUT_HERE_YOUR_BOX_RESELLER_CLIENT_SECRET",
+    "box_reseller_id": "PUT_HERE_YOUR_BOX_RESELLER_ID"
+}
