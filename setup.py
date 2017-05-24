@@ -16,8 +16,7 @@ with codecs.open(join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 install_reqs = parse_requirements(join(here, 'requirements.txt'), session=False)
-# reqs = [str(ir.req) for ir in install_reqs]
-reqs = install_reqs
+reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
     name='box-connector',

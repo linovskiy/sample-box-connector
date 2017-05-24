@@ -7,9 +7,9 @@ python2.7 -m flake8
 
 
 cp -r ~/.virtualenvs/fallballconnector-venv .
-source fallballconnector-venv/bin/activate
+source boxconnector-venv/bin/activate
 
 nosetests
 
 deactivate
-rm -rf fallballconnector-venv
+rm -rf boxconnector-venv

@@ -1,13 +1,11 @@
-# Fallball connector
+# BOX connector
 
-This is a basic sample connector for the [Fallball Cloud Storage](https://github.com/odin-public/fallball-service).
-
-[![Build Status](https://travis-ci.org/odin-public/fallball-connector.svg?branch=master)](https://travis-ci.org/odin-public/fallball-connector)
-[![Coverage Status](https://coveralls.io/repos/github/odin-public/fallball-connector/badge.svg?branch=master)](https://coveralls.io/github/odin-public/fallball-connector?branch=master)
+This is a basic sample connector.
+It's been reworked from [Fallball Cloud Storage](https://github.com/odin-public/fallball-service).
 
 ## Running on localhost with tunnel
 
-* Download and unzip fallball-connector
+* Download and unzip sample-box-connector
 
 * Install package and requirements for local development
 
@@ -15,21 +13,13 @@ This is a basic sample connector for the [Fallball Cloud Storage](https://github
 python setup.py develop
 ```
 
-* Update `config.json` file with your credantials
+* Update `config.json` file with your BOX credantials and OAuth data from APS Connect Portal
 
-```json
-{
-    "fallball_service_url": "PUT_HERE_FALLBALL_SERVICE_URI",
-    "fallball_service_authorization_token": "PUT_HERE_FALLBALL_SERVICE_AUTHORIZATION_TOKEN",
-    "oauth_key": "PUT_HERE_OAUTH_KEY",
-    "oauth_signature": "PUT_HERE_OAUTH_SIGNATURE"
-}
-```
 
 * Run application
 
 ```bash
-$ python connector/app.py
+$ python3 -m connector.app
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ```
 
